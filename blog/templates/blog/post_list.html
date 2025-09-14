@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </header>
-
-        <article>
-            <time>published: 14.06.2014, 12:14</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </article>
-
-        <article>
-            <time>published: 14.06.2014, 12:14</time>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </article>
-    </body>
-</html>
+{% extends 'base.html' %}
+ {% block content %}
+<body class="container px-4 mx-auto">
+    <header>
+        <h1><a href="/" class="text-white bg-[#C25100]  p-[20px] mb-[40px] sm:text-4xl text-2xl">Kelvin Blog</a></h1>
+        <hr class="border-t-2 border-gray-300 my-8">
+    </header>
+    <article>
+        
+            {% for post in posts %}
+                <time class="text-red-500 py-8">{{ post.published_date }}</time>
+                <h2 class="font-mono pb-5 text-3xl"><a href="#">{{ post.title }}</a></h2>
+                <p class="pb-4">{{ post.tetx|linebreaksbr }}</p>
+            {% endfor %}
+       
+    </article>
+</body>
+{% endblock content %}
