@@ -9,7 +9,7 @@
         
             {% for post in posts %}
                 <time class="text-red-500 py-8">{{ post.published_date }}</time>
-                <h2 class="font-mono pb-5 text-3xl"><a href="#">{{ post.title }}</a></h2>
+                <h2 class="font-mono pb-5 text-3xl"><a href="{% url 'deiails' pk=post.pk %}">{{ post.title }}</a></h2>
                 <p class="pb-4">{{ post.tetx|linebreaksbr }}</p>
             {% endfor %}
        

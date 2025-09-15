@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+<body class="container px-4 mx-auto">
+    <header>
+        <h1><a href="/" class="text-white bg-[#C25100]  p-[20px] mb-[40px] sm:text-4xl text-2xl">Kelvin Blog</a></h1>
+        <hr class="border-t-2 border-gray-300 my-8">
+    </header>
+    <article>
+        {% for post in posts %}
+            <time class="text-red-500 py-8">{{ post.published_date }}</time>
+            <h2 class="font-mono pb-5 text-3xl"><a href="#">{{ post.title }}</a></h2>
+            <p class="pb-4">{{ post.tetx|linebreaksbr }}</p>
+        {% endfor %}
+    </article>
+</body>
+{% endblock content %}
