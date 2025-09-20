@@ -16,6 +16,7 @@
                 <time class="block ">Published on: {{ post.published_date }}</time>
                 <h2 class="py-2 text-amber-600 text-4xl"><a href="{% url 'details' post.pk %}">{{ post.title }}</a></h2>
                 <p>{{ post.text|linebreaksbr }}</p>
+                <button class='bg-blue-400 text-white px-2 text-lg rounded-lg hover:bg-blue-300'><a href="{% url 'post_edit' post.pk %}" >Edit</a></button>
                 <br>
                 <hr>
             </article>

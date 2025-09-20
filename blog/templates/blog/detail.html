@@ -7,11 +7,12 @@
         <hr class="border-t-2 border-gray-300 my-8">
     </header>
     <article>
-        {% for post in posts %}
-            <time class="text-red-500 py-8">{{ post.published_date }}</time>
-            <h2 class="font-mono pb-5 text-3xl"><a href="#">{{ post.title }}</a></h2>
-            <p class="pb-4">{{ post.text|linebreaksbr }}</p>
-        {% endfor %}
+        <h2 class="text-2xl font-bold mb-2">{{ post.title }}</h2>
+        <p class="text-gray-700 mb-4">{{ post.text|linebreaksbr }}</p>
+        <p class="text-sm text-blue-500">
+            Last updated: {{ post.updated_at|date:"F d, Y H:i" }}
+        </p>
+
     </article>
 </body>
 {% endblock content %}
