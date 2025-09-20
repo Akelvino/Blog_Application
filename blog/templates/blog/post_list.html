@@ -1,24 +1,24 @@
 {% extends 'base.html' %}
- {% block content %}
-<body class="container px-4 mx-auto">
-    <header>
-        <div class="w-full bg-[#C25100] p-4 flex justify-between items-center align-center ">
-            <div class=""> <h1><a href="/" class="text-white   p-[20px] mb-[40px] sm:text-4xl text-2xl">Kelvin Blog</a></h1></div>
-           <div>
-            <button type="button" class="py-2.5 px-5 me-2 mb-2 text-lg font-medium text-white focus:outline-none bg-orange-400 rounded-lg border border-gray-200 hover:bg-orange-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"><a href="{% url 'post_new' %}">Add Blog</a></button>
-           </div>
-        </div>
-           
-         <hr class="border-t-2 border-gray-300 my-8">
-    </header>
-    <article>
-        
-            {% for post in posts %}
-                <time class="text-red-500 py-8">{{ post.published_date }}</time>
-                <h2 class="font-mono pb-5 text-3xl"><a href="{% url 'deiails' pk=post.pk %}">{{ post.title }}</a></h2>
-                <p class="pb-4">{{ post.tetx|linebreaksbr }}</p>
-            {% endfor %}
-       
-    </article>
-</body>
+{% block content %}
+    <body class="container px-4 mx-auto">
+        <header>
+            <div class="w-full bg-[#C25100] p-4 flex justify-between items-center align-center ">
+                <div class=""> <h1><a href="/" class="text-white   p-[20px] mb-[40px] sm:text-4xl text-2xl">Kelvin Blog</a></h1></div>
+               <div>
+                <button type="button" class="py-2.5 px-5 me-2 mb-2 text-lg font-medium text-white focus:outline-none bg-orange-400 rounded-lg border border-gray-200 hover:bg-orange-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"><a href="#">Add Blog</a></button>
+               </div>
+            </div>
+
+             <hr class="border-t-2 border-gray-300 my-8">
+        </header>
+        {% for post in posts %}
+            <article class="my-3">
+                <time class="block ">Published on: {{ post.published_date }}</time>
+                <h2 class="py-2 text-amber-600 text-4xl"><a href="{% url 'details' post.pk %}">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+                <br>
+                <hr>
+            </article>
+        {% endfor %}
+    </body>
 {% endblock content %}
